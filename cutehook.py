@@ -19,7 +19,8 @@ def check_hook(hook):
 
 def main(webhook, name, delay, amount, message, hookDeleter):
     counter = 0
-    while True if amount == "inf" else counter < int(amount):
+    inf = amount == "inf"
+    while inf or counter < int(amount):
         try:
             data = requests.post(webhook, json={"content": str(message), "name": str(name),
                                                 "avatar_url": "https://i.imgur.com/lk79Hlc.jpeg"})
